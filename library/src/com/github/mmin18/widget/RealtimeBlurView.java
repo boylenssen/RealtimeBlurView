@@ -27,7 +27,7 @@ import com.github.mmin18.realtimeblurview.R;
  */
 public class RealtimeBlurView extends View {
 
-	View overrideView = null;
+	public View overrideView = null;
 	private float mDownsampleFactor; // default 4
 	private int mOverlayColor; // default #aaffffff
 	private float mBlurRadius; // default 10dp (0 < r <= 25)
