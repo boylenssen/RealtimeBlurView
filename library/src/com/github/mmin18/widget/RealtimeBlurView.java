@@ -27,6 +27,7 @@ import com.github.mmin18.realtimeblurview.R;
  */
 public class RealtimeBlurView extends View {
 
+	View overrideView = null;
 	private float mDownsampleFactor; // default 4
 	private int mOverlayColor; // default #aaffffff
 	private float mBlurRadius; // default 10dp (0 < r <= 25)
@@ -238,7 +239,7 @@ public class RealtimeBlurView extends View {
 		public boolean onPreDraw() {
 			final int[] locations = new int[2];
 			Bitmap oldBmp = mBlurredBitmap;
-			View decor = mDecorView;
+			View decor = overrideView != null ? overrideView : mDecorView;
 			if (decor != null && isShown() && prepare()) {
 				boolean redrawBitmap = mBlurredBitmap != oldBmp;
 				oldBmp = null;
